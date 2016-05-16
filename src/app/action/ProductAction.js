@@ -11,10 +11,10 @@ export function getAllProduct() {
   return (dispatch) => {
     axios
       .get(`${API_URL}/api/product`)
-      .then(({ data }) => {
+      .then((response) => {
         dispatch({
           type: GET_ALL_PRODUCT,
-          payload: { products: data },
+          payload: { products: response.data },
         });
       })
       .catch(err => {

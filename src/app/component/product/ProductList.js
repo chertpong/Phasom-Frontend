@@ -5,9 +5,9 @@ const ProductList = ({ products, onProductClick }) => (
   <div>
     {products.map(product =>
       <ProductCard
-        key={product.id}
+        key={product.Id}
+        onProductClick={onProductClick}
         {...product}
-        onclick={() => product.onProductClick(product.id)}
       />
     )}
   </div>

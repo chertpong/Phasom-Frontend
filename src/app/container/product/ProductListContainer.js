@@ -13,7 +13,7 @@ class ProductListContainer extends Component {
   }
 
   componentWillReceiveProps() {
-      
+
   }
 
   render() {
@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch) => ({
   dispatch,
 });
 const mapStateToProps = (state) => ({
-  products: state.products.products,
+  products: state.products.products || [],
 });
 
 export default connect(
