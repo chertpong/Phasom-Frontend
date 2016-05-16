@@ -4,9 +4,6 @@ import ProductList from './../../component/product/ProductList';
 import { getAllProduct, getProductById } from './../../action';
 
 class ProductListContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.dispatch(getAllProduct());
