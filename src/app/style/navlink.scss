@@ -12,14 +12,14 @@
       font-size:18px;
 
       &.active {
-        color:white !important;
+        color:green !important;
       }
 
       &:hover {
-        color:white;
+        color:green;
       }
       &:active {
-        color:white;
+        color:green;
       }
       &:visited {
         color: inherit;

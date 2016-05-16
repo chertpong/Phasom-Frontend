@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react';
-import Navbar from './Navbar.js';
-import Footer from './Footer.js';
+import React, { PropTypes } from 'react';
+import Navbar from './component/Navbar.js';
+import Footer from './component/Footer.js';
 
 const propTypes = {
   children: PropTypes.node,
