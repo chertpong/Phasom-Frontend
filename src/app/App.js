@@ -1,22 +1,32 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Navbar from './component/Navbar.js';
 import Footer from './component/Footer.js';
+import { muiTheme } from './../config';
 
-const propTypes = {
+class App extends Component {
+  getChildContext() {
+    return { muiTheme };
+  }
+
+  render() {
+    return (
+      <div className="wrapper">
+        <Navbar />
+        <div className="bodyWrapper">
+          {this.props.children}
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+}
+
+App.propTypes = {
   children: PropTypes.node,
 };
 
-const App = (props) => (
-  <div className="wrapper">
-    <Navbar />
-    <div className="bodyWrapper">
-      {props.children}
-    </div>
-    <Footer />
-  </div>
-
-);
-
-App.propTypes = propTypes;
+App.childContextTypes = {
+  muiTheme: PropTypes.object,
+};
 
 export default App;

@@ -12,19 +12,19 @@ class ProductDetailContainer extends Component {
     this.props.dispatch(getProductById(this.props.params.id));
   }
 
-  handleAddToCart(id) {
-    this.props.addToCart(id);
+  handleAddToShoppingCart(id) {
+    this.props.addToShoppingCart(id);
     // TODO: add product to cart
     // this.context.router.push(`products/${id}`);
   }
 
   render() {
     return (
-      <div className="productListContainer">
+      <div className="productListContainer row">
         <ProductDetail
           key={this.props.product.Id}
           {...this.props.product}
-          addToCart={(id) => this.handleAddToCart(id)}
+          addToShoppingCart={(id) => this.handleAddToShoppingCart(id)}
         />
       </div>
     );
@@ -40,7 +40,7 @@ ProductDetailContainer.propTypes = {
     Amount: PropTypes.number,
     Pictures: PropTypes.array,
   }).isRequired,
-  addToCart: PropTypes.func.isRequired,
+  addToShoppingCart: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
@@ -49,7 +49,7 @@ ProductDetailContainer.contextTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  addToCart: (id) => dispatch(addToShoppingCart(id)),
+  addToShoppingCart: (id) => dispatch(addToShoppingCart(id)),
   dispatch,
 });
 

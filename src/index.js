@@ -11,10 +11,18 @@ const history = useRouterHistory(createHashHistory)(
 );
 const store = configureStore();
 const syncedHistory = syncHistoryWithStore(history, store);
-import { API_URL } from './config';
+
+// Config
+import { API_URL, muiTheme } from './config';
 
 // Styles
 import './app/style/style.scss';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import 'material-design-icons/iconfont/material-icons.css';
+import 'flexboxgrid/dist/flexboxgrid.css';
+import themeDecorator from 'material-ui/styles/themeDecorator';
+
+injectTapEventPlugin();
 
 // Containers
 import App from './app/App';

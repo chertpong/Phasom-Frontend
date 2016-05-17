@@ -1,0 +1,18 @@
+.productCard {
+  &__container {
+    margin: 0 15px 15px 15px;
+    width: 300px;
+    min-width: 280px;
+  }
+  &__card-media-thumbnail {
+    &-img {
+      margin-top: 10px;
+      min-width: 260px !important;
+      width: 280px !important;
+      height: 300px !important;
+    }
+  }
+  &__description {
+    margin-top: -20px;
+  }
+}

@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ProductList from './../../component/product/ProductList';
-import { getAllProduct, getProductById } from './../../action';
+import { getAllProduct, getProductById, addToShoppingCart } from './../../action';
+
+import './product-list-container.scss';
 
 class ProductListContainer extends Component {
   constructor(props, context) {
@@ -15,10 +17,21 @@ class ProductListContainer extends Component {
     this.props.onProductClick(id);
     this.context.router.push(`/products/${id}`);
   }
+
+  handleAddToShoppingCart(id) {
+    this.props.addToShoppingCart(id);
+    // TODO: add product to cart
+    // this.context.router.push(`products/${id}`);
+  }
+
   render() {
     return (
-      <div className="productListContainer">
-        <ProductList products={this.props.products} onProductClick={(id) => this.handleOnProductClick(id)} />
+      <div className="productListContainer__container">
+        <ProductList
+          products={this.props.products}
+          onProductClick={(id) => this.handleOnProductClick(id)}
+          addToShoppingCart={(id) => this.handleAddToShoppingCart(id)}
+        />
       </div>
     );
   }
@@ -34,6 +47,7 @@ ProductListContainer.propTypes = {
     Pictures: PropTypes.array,
   }).isRequired).isRequired,
   onProductClick: PropTypes.func.isRequired,
+  addToShoppingCart: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 ProductListContainer.contextTypes = {
@@ -41,6 +55,7 @@ ProductListContainer.contextTypes = {
 };
 const mapDispatchToProps = (dispatch) => ({
   onProductClick: (id) => dispatch(getProductById(id)),
+  addToShoppingCart: (id) => dispatch(addToShoppingCart(id)),
   dispatch,
 });
 const mapStateToProps = (state) => ({

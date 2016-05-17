@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 import ProductCard from './ProductCard';
 
-const ProductList = ({ products, onProductClick }) => (
-  <div>
+const ProductList = ({ products, onProductClick, addToShoppingCart }) => (
+  <div className="row">
     {products.map(product =>
       <ProductCard
         key={product.Id}
         onProductClick={onProductClick}
+        addToShoppingCart={addToShoppingCart}
         {...product}
       />
     )}
@@ -25,6 +26,7 @@ ProductList.propTypes = {
     Pictures: PropTypes.array,
   }).isRequired).isRequired,
   onProductClick: PropTypes.func.isRequired,
+  addToShoppingCart: PropTypes.func.isRequired,
 };
 
 export default ProductList;
