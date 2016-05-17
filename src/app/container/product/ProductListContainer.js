@@ -4,19 +4,21 @@ import ProductList from './../../component/product/ProductList';
 import { getAllProduct, getProductById } from './../../action';
 
 class ProductListContainer extends Component {
-
+  constructor(props, context) {
+    super(props, context);
+  }
   componentDidMount() {
     this.props.dispatch(getAllProduct());
   }
 
-  componentWillReceiveProps() {
-
+  handleOnProductClick(id) {
+    this.props.onProductClick(id);
+    this.context.router.push(`/products/${id}`);
   }
-
   render() {
     return (
       <div className="productListContainer">
-        <ProductList products={this.props.products} onProductClick={this.props.onProductClick} />
+        <ProductList products={this.props.products} onProductClick={(id) => this.handleOnProductClick(id)} />
       </div>
     );
   }
@@ -34,7 +36,9 @@ ProductListContainer.propTypes = {
   onProductClick: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
-
+ProductListContainer.contextTypes = {
+  router: React.PropTypes.object,
+};
 const mapDispatchToProps = (dispatch) => ({
   onProductClick: (id) => dispatch(getProductById(id)),
   dispatch,

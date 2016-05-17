@@ -25,18 +25,20 @@ export function getAllProduct() {
 
 export function getProductById(id) {
   return (dispatch, getState) => {
-    axios
-      .get(`${API_URL}/api/product/${id}`)
-      .then((response) => {
-        dispatch({
-          type: GET_PRODUCT_BY_ID,
-          payload: { product: response.data },
-          id,
+    if (getState().products.product === undefined || getState().products.product.Id !== id) {
+      axios
+        .get(`${API_URL}/api/product/${id}`)
+        .then((response) => {
+          dispatch({
+            type: GET_PRODUCT_BY_ID,
+            payload: { product: response.data },
+            id,
+          });
+        })
+        .catch(err => {
+          fetchDataFailure({ error: err, errorMessage: `Couldn\'t fetch product id: ${id}` });
         });
-      })
-      .catch(err => {
-        fetchDataFailure({ error: err, errorMessage: `Couldn\'t fetch product id: ${id}` });
-      });
+    }
   };
 }
 
