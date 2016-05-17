@@ -1,0 +1,22 @@
+.productDetail {
+  &__wrapper {
+
+  }
+
+  &__image-preview {
+    &-img {
+      width: 300px;
+      height: 375px;
+    }
+  }
+
+  &__add-to-cart-button {
+    cursor: pointer;
+  }
+
+  &__add-to-cart-button {
+    margin-top: 10px;
+    &-font-icon {
+    }
+  }
+}

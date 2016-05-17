@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import ProductDetail from './../../component/product/ProductDetail';
 import { getProductById, addToShoppingCart } from './../../action';
 
+import './produc-detail-container.scss';
+
 class ProductDetailContainer extends Component {
   constructor(props, context) {
     super(props, context);
@@ -20,7 +22,7 @@ class ProductDetailContainer extends Component {
 
   render() {
     return (
-      <div className="productListContainer row">
+      <div className="productDetailContainer__container container">
         <ProductDetail
           key={this.props.product.Id}
           {...this.props.product}

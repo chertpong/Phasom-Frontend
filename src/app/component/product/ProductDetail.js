@@ -1,20 +1,40 @@
 import React, { PropTypes } from 'react';
+import FontIcon from 'material-ui/FontIcon';
+import * as colors from 'material-ui/styles/colors';
+
+import './product-detail.scss';
+
+const getAltImageName = (name) => `product-detail-img-${name}`;
 
 const ProductDetail = ({ Id, Name, Description, Price, Thumbnail, Tags, Amount, Pictures, addToShoppingCart }) => (
-  <div className="productDetail__wrapper">
-    <h1 className="productDetail__title-header">{`${Id}: ${Name}`}</h1>
-    <div className="productDetail__body">
-      <h5>Description</h5>
+  <div className="productDetail__wrapper row">
+    <div className="productDetail__image-preview col-xs-12 col-sm-4">
+      <img className="productDetail__image-preview-img" src={Thumbnail} alt={getAltImageName(Name)} />
+    </div>
+    <div className="productDetail__body col-xs-12 col-sm-7">
+      <h1 className="productDetail__title-header">{`${Name}`}</h1>
       <div className="productDetail__description">
-        {Description}
+        <span style={{ fontWeight: 'bold' }}>Description:</span>{Description}
       </div>
       <div className="productDetail__price">
-        {Price}
+        <span style={{ fontWeight: 'bold' }}>Price:</span> {Price}
+      </div>
+      <div className="productDetail__tags">
+        <span style={{ fontWeight: 'bold' }}>Tags:</span>
+        {Tags ? Tags.map(t => (<span className="productDetail__tag">t</span>)) : (<span>None</span>)}
+      </div>
+      <div className="productDetail__add-to-cart-button" onClick={() => addToShoppingCart(Id)}>
+        <FontIcon
+          className="productDetail__add-to-cart-button-font-icon material-icons"
+          color={colors.orange400}
+          hoverColor={colors.amber900}
+        >
+          add_shopping_cart
+        </FontIcon>
+        Add to shopping cart
       </div>
     </div>
-    <button className="btn productDetail__add-to-cart-button" onClick={(id) => addToShoppingCart(id)}>
-      Add to cart
-    </button>
+
   </div>
 );
 

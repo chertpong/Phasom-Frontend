@@ -1,18 +1,47 @@
 .productCard {
+  &__title {
+    cursor: pointer;
+  }
   &__container {
     margin: 0 15px 15px 15px;
     width: 300px;
     min-width: 280px;
   }
+
   &__card-media-thumbnail {
     &-img {
       margin-top: 10px;
       min-width: 260px !important;
       width: 280px !important;
       height: 300px !important;
+      cursor: pointer;
     }
   }
+
   &__description {
+    margin-top: -20px;
+  }
+
+  &__add-to-cart-button {
+    &-font-icon {
+      margin-top:5px;
+    }
+  }
+
+  &__view-detail-button {
+    text-align: left;
+    min-width: 150px !important;
+  }
+
+  &__availability {
+    padding-left: 10px;
+  }
+
+  &__price {
+    padding-right: 10px;
+  }
+
+  &__second-block {
     margin-top: -20px;
   }
 }

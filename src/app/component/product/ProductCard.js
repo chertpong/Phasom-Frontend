@@ -22,23 +22,39 @@ const ProductCard = ({
         alt={getAltImageName(Name)}
       />
     </CardMedia>
-    <CardTitle className="productCard__title">
-      {Name}
+    <CardTitle className="productCard__title" onClick={() => onProductClick(Id)}>
+      <h3>{Name}</h3>
     </CardTitle>
-    <CardActions className="product-item__card-actions box box-container">
-      <Link to={`/products/${Id}`}>
-        <FlatButton label="View detail" class="btn productCard__view-detail-button" />
-      </Link>
-      <FontIcon
-        className="productCard__add-to-cart-button material-icons end-xs"
-        color={colors.orange500}
-        hoverColor={colors.amber900}
-        onClick={() => addToShoppingCart(Id)}
-      >
-        add_shopping_cart
-      </FontIcon>
-
-    </CardActions>
+    <div className="row productCard__second-block">
+      <div className="productCard__availability col-xs-6 start-xs">
+        {Amount > 0 ?
+          <span style={{ color: 'green' }}>Available</span> : <span style={{ color: 'red' }}>Out of stock</span>
+        }
+      </div>
+      <div className="productCard__price col-xs-6 end-xs">
+        <span style={{ fontWeight: 'bold' }}>Price: </span> {Price}
+      </div>
+    </div>
+    <div className="row">
+      <div className="col-xs-9">
+        Tags
+      </div>
+      <CardActions className="product-item__card-actions col-xs-3 row end-xs">
+        <div className="productCard__add-to-cart-button">
+          <FontIcon
+            className="productCard__add-to-cart-button-font-icon material-icons"
+            color={colors.orange400}
+            hoverColor={colors.amber900}
+            onClick={() => addToShoppingCart(Id)}
+          >
+            add_shopping_cart
+          </FontIcon>
+        </div>
+        <Link to={`/products/${Id}`}>
+          <FlatButton label="View detail" class="btn productCard__view-detail-button" />
+        </Link>
+      </CardActions>
+    </div>
   </Card>
 );
 
