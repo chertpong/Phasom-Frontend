@@ -1,0 +1,15 @@
+.selectedProduct {
+  &__amount-input {
+    width: 50px;
+  }
+  &__thumbnail {
+    width: 60px;
+    height: 80px;
+  }
+  &__delete-icon {
+    color: #FAFAFA !important;
+    &:hover {
+      color: #BDBDBD !important;
+    }
+  }
+}

@@ -13,14 +13,11 @@
       color: black;
 
       &.active {
-        color:green !important;
+        color:white !important;
       }
 
       &:hover {
-        color:green;
-      }
-      &:active {
-        color:green;
+        color:white;
       }
       &:visited {
         color: inherit;

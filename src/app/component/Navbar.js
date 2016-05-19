@@ -1,5 +1,6 @@
 import React from 'react';
 import NavLink from './NavLink';
+import AppBar from 'material-ui/AppBar';
 
 const style = {
   navbar: {
@@ -8,12 +9,13 @@ const style = {
 };
 
 const Navbar = (props) => (
-  <navbar style={style.navbar}>
+  <AppBar title="WatDoiPhaSom">
     <ul className="navbar__list">
       <li className="navbar__list-item"><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>
       <li className="navbar__list-item"><NavLink to="/products">Products</NavLink></li>
+      <li className="navbar__list-item"><NavLink to="/shoppingCart">Cart</NavLink></li>
     </ul>
-  </navbar>
+  </AppBar>
 );
 
 export default Navbar;

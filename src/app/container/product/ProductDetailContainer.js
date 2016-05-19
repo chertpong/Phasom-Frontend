@@ -14,8 +14,8 @@ class ProductDetailContainer extends Component {
     this.props.dispatch(getProductById(this.props.params.id));
   }
 
-  handleAddToShoppingCart(id) {
-    this.props.addToShoppingCart(id);
+  handleAddToShoppingCart(id, amount) {
+    this.props.addToShoppingCart(id, amount);
     // TODO: add product to cart
     // this.context.router.push(`products/${id}`);
   }
@@ -26,7 +26,7 @@ class ProductDetailContainer extends Component {
         <ProductDetail
           key={this.props.product.Id}
           {...this.props.product}
-          addToShoppingCart={(id) => this.handleAddToShoppingCart(id)}
+          addToShoppingCart={(id, amount) => this.handleAddToShoppingCart(id, amount)}
         />
       </div>
     );
@@ -51,7 +51,7 @@ ProductDetailContainer.contextTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  addToShoppingCart: (id) => dispatch(addToShoppingCart(id)),
+  addToShoppingCart: (id, amount) => dispatch(addToShoppingCart(id)),
   dispatch,
 });
 

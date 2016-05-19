@@ -45,7 +45,7 @@ const ProductCard = ({
             className="productCard__add-to-cart-button-font-icon material-icons"
             color={colors.orange400}
             hoverColor={colors.amber900}
-            onClick={() => addToShoppingCart(Id)}
+            onClick={() => addToShoppingCart(Id, 1)}
           >
             add_shopping_cart
           </FontIcon>

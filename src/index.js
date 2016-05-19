@@ -29,6 +29,7 @@ import App from './app/App';
 import Home from './app/container/Home';
 import ProductListContainer from './app/container/product/ProductListContainer';
 import ProductDetailContainer from './app/container/product/ProductDetailContainer';
+import CartContainer from './app/container/cart/CartListContainer';
 
 import NotFound from './app/container/NotFound';
 
@@ -40,6 +41,7 @@ render(
         <Route path="/home" component={Home} />
         <Route path="/products" component={ProductListContainer} />
         <Route path="/products/:id" component={ProductDetailContainer} />
+        <Route path="/shoppingCart" component={CartContainer} />
         <Route path="/404" component={NotFound} />
         <Redirect from="*" to="/404" />
       </Route>

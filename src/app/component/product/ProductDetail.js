@@ -23,7 +23,7 @@ const ProductDetail = ({ Id, Name, Description, Price, Thumbnail, Tags, Amount, 
         <span style={{ fontWeight: 'bold' }}>Tags:</span>
         {Tags ? Tags.map(t => (<span className="productDetail__tag">t</span>)) : (<span>None</span>)}
       </div>
-      <div className="productDetail__add-to-cart-button" onClick={() => addToShoppingCart(Id)}>
+      <div className="productDetail__add-to-cart-button" onClick={() => addToShoppingCart(Id,1)}>
         <FontIcon
           className="productDetail__add-to-cart-button-font-icon material-icons"
           color={colors.orange400}
